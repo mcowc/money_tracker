@@ -1,5 +1,5 @@
-1490
-1 143.96, Logitech G512 Carbon
-2 15, Jacob
-3 14.50, 2x Intruder (For me and Sam)
-4 7.25, Intruder (For Luca)
+1000
+100, Dog
+15.0, Car
+101.50, I farded
+7.25, Gamer
