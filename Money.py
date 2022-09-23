@@ -1,5 +1,3 @@
-import json
-
 # Check money
 def check_money():
     # Vars
@@ -12,11 +10,8 @@ def check_money():
             if ln == 0:
                 money = int(line)
             else:
-                x = line.split(" ", 1)
-                dict_key = int(x[0])
-                dict_value = x[1].split(', ')
-                dict_value = [float(dict_value[0]), dict_value[1]]
-                expenses.update({dict_key:dict_value})
+                x = line.split(", ", 1)
+                expenses.update({ln:[float((x)[0]), x[1]]})
 
     # Display our balance and expenses
     current_money = money
@@ -24,7 +19,7 @@ def check_money():
     print ("You have spent:")
     for i in range(len(expenses)):
         j = i+1
-        print((str(j)) + ".  $" + str(expenses[j][0]))
+        print(str(j) + ".  $" + str(expenses[j][0]))
         current_money = current_money - expenses[j][0]
     print("You have $" + str(current_money) + " left")
 
@@ -33,7 +28,7 @@ def check_money():
     while True:
         uinput = input()
         if uinput == 'q':
-                exit()
+                main_menu()
         else:
             try:
                 uinput = int(uinput)
@@ -49,5 +44,17 @@ def check_money():
                     print("Please choose a number within the range of 1 - " + str(len(expenses)))
 
 
+# Main Menu
+def main_menu():
+    uinput = input("Would you like to view your balance and expenses (v) or quit (q)?\n")
+    if uinput == "v":
+        check_money()
+    elif uinput == "q":
+        exit()
+    else:
+        print("That is not a valid input")
+        main_menu()
+
+
 # Run function
-check_money()
+main_menu()
